@@ -1,3 +1,11 @@
+---
+title: Introduction
+slug: introduction
+version: v1
+description: > 
+  A friendly, engaging introduction to the Rust programming language—what it is, why it matters, and what you can build with it. Perfect for beginners and curious developers alike.
+---
+
 <Badge variant="outline">Beginner Friendly</Badge>
 
 # 🦀 Say Hello to Rust – Your New Favorite Programming Language
@@ -45,11 +53,27 @@ Rust is a systems programming language focused on <strong>speed</strong>, <stron
   </AlertDescription>
 </Alert>
 
-<CodeBlock language="rust">{`
+Here's your first Rust program, with some highlighted features:
+
+<CodeBlock
+  language="rust"
+  title="Hello World in Rust"
+  showLineNumbers
+  highlightLines={[2]}
+  focusLines={[3]}
+  wordsToHighlight={["println!"]}
+  annotations={[
+    { line: 2, message: "The main entry point.", style: "info" },
+    { line: 3, message: "Prints to the console.", style: "success" }
+  ]}
+>{`
 fn main() {
+    // Entry point of every Rust program
     println!("Hello, Rustacean! 🦀");
 }
 `}</CodeBlock>
+
+This code defines the <strong>main</strong> function, which is the entry point of every Rust program. The <code>println!</code> macro prints a message to your terminal.
 
 <blockquote>
   💬 <em>“Rust makes hard things possible, and easy things fun.”</em> — Probably a happy Rustacean

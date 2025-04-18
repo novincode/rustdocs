@@ -1,0 +1,166 @@
+---
+title: Installation
+slug: installation
+version: v1
+description: >
+  A professional, beginner-friendly, and engaging Rust installation guide. Learn how to install Rust on macOS, Linux, or Windows, verify your setup, and get ready to code with confidence.
+---
+
+<Badge variant="outline">Beginner Friendly</Badge>
+
+# 🚀 Installing Rust
+
+Welcome to your first step in becoming a Rustacean! 🦀 Whether you're a complete beginner or coming from another language, getting Rust set up on your machine is fast and easy. Let’s get you coding in no time.
+
+<Alert>
+  <AlertTitle>Why use <code>rustup</code>?</AlertTitle>
+  <AlertDescription>
+    <ul>
+      <li>Installs Rust, Cargo (Rust’s package manager), and more in one go</li>
+      <li>Makes it easy to update or switch versions</li>
+      <li>Works across macOS, Linux, and Windows</li>
+    </ul>
+  </AlertDescription>
+</Alert>
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="step-1">
+    <AccordionTrigger>🧑‍💻 Step 1: Open Your Terminal</AccordionTrigger>
+    <AccordionContent>
+      <Alert variant="secondary">
+        <AlertDescription>
+          Choose your OS and run the following command in your terminal:
+        </AlertDescription>
+      </Alert>
+      <Tabs defaultValue="macos-linux">
+        <TabsList>
+          <TabsTrigger value="macos-linux">macOS / Linux</TabsTrigger>
+          <TabsTrigger value="windows">Windows</TabsTrigger>
+        </TabsList>
+        <TabsContent value="macos-linux">
+          <CodeBlock
+            language="bash"
+            title="Install Rust via rustup (macOS/Linux)"
+            showLineNumbers
+            highlightLines={[1]}
+            annotations={[{ line: 1, message: "Recommended for most users.", style: "info" }]}
+          >{`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`}</CodeBlock>
+        </TabsContent>
+        <TabsContent value="windows">
+          <Alert variant="secondary">
+            <AlertDescription>
+              Download and run the <a href="https://win.rustup.rs" target="_blank" rel="noopener">Rust installer for Windows</a>.<br/>
+              (It includes a command line terminal if you don't already have one!)
+            </AlertDescription>
+          </Alert>
+        </TabsContent>
+      </Tabs>
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="step-2">
+    <AccordionTrigger>⚙️ Step 2: Follow the Prompts</AccordionTrigger>
+    <AccordionContent>
+      <ul>
+        <li>You’ll be asked if you want to proceed with the <strong>default installation</strong>.</li>
+        <li>Press <strong>Enter</strong> to confirm — this is great for most users.</li>
+        <li>That’s it! The installer will take care of the rest. ✨</li>
+      </ul>
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="step-3">
+    <AccordionTrigger>🔁 Step 3: Restart Your Terminal</AccordionTrigger>
+    <AccordionContent>
+      <Alert variant="secondary">
+        <AlertDescription>
+          To make sure your shell recognizes the new commands, <strong>close and reopen</strong> your terminal.
+        </AlertDescription>
+      </Alert>
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="step-4">
+    <AccordionTrigger>🧪 Step 4: Verify Your Installation</AccordionTrigger>
+    <AccordionContent>
+      <CodeBlock
+        language="bash"
+        title="Check Rust Compiler Version"
+        showLineNumbers
+        highlightLines={[1]}
+        annotations={[{ line: 1, message: "Check if Rust is installed.", style: "info" }]}
+      >{`rustc --version`}</CodeBlock>
+      <CodeBlock
+        language="bash"
+        title="Check Cargo Version"
+        showLineNumbers
+        highlightLines={[1]}
+        annotations={[{ line: 1, message: "Cargo is Rust’s package manager.", style: "info" }]}
+      >{`cargo --version`}</CodeBlock>
+      <Alert variant="success">
+        <AlertDescription>
+          If you see something like <code>rustc 1.77.0</code>, you’re golden! 🌟
+        </AlertDescription>
+      </Alert>
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="step-5">
+    <AccordionTrigger>👇 Optional: Add Rust to PATH (If Needed)</AccordionTrigger>
+    <AccordionContent>
+      <Tabs defaultValue="macos-linux">
+        <TabsList>
+          <TabsTrigger value="macos-linux">macOS / Linux</TabsTrigger>
+          <TabsTrigger value="windows">Windows</TabsTrigger>
+        </TabsList>
+        <TabsContent value="macos-linux">
+          <CodeBlock
+            language="bash"
+            title="Add Rust to PATH (macOS/Linux)"
+            showLineNumbers
+            highlightLines={[1]}
+            annotations={[{ line: 1, message: "Run this if you get 'command not found'.", style: "warning" }]}
+          >{`source $HOME/.cargo/env`}</CodeBlock>
+        </TabsContent>
+        <TabsContent value="windows">
+          <Alert variant="secondary">
+            <AlertDescription>
+              Restart the terminal or add <code>%USERPROFILE%\.cargo\bin</code> to your system environment variables.
+            </AlertDescription>
+          </Alert>
+        </TabsContent>
+      </Tabs>
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="step-6">
+    <AccordionTrigger>🆕 Keeping Rust Up to Date</AccordionTrigger>
+    <AccordionContent>
+      <CodeBlock
+        language="bash"
+        title="Update Rust Toolchain"
+        showLineNumbers
+        highlightLines={[1]}
+        annotations={[{ line: 1, message: "Stay on the latest stable version.", style: "info" }]}
+      >{`rustup update`}</CodeBlock>
+      <CodeBlock
+        language="bash"
+        title="Install Nightly or Switch Versions"
+        showLineNumbers
+        highlightLines={[1,2]}
+        annotations={[
+          { line: 1, message: "Install nightly build.", style: "info" },
+          { line: 2, message: "Switch back to stable.", style: "info" }
+        ]}
+      >{`rustup install nightly
+rustup default stable`}</CodeBlock>
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+<Alert variant="secondary">
+  <AlertDescription>
+    🤓 <strong>Pro Tip:</strong> Not ready to install just yet? Try Rust in your browser: <a href="https://play.rust-lang.org" target="_blank" rel="noopener">play.rust-lang.org</a>
+  </AlertDescription>
+</Alert>
+
+<Alert variant="success">
+  <AlertDescription>
+    🎉 <strong>What’s Next?</strong> You’ve now got Rust on your system. Next up: writing your <strong>first “Hello, World!”</strong> and diving into projects with <code>cargo</code>.
+  </AlertDescription>
+</Alert>
