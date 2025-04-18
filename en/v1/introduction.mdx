@@ -1,98 +1,48 @@
-<Card>
-  <CardHeader>
-    <CardTitle>🦀 Welcome to the World of Rust</CardTitle>
-    <CardDescription>
-      Fast, fearless, and fun. Rust isn’t just a language—it’s a new mindset for systems programming.
-    </CardDescription>
-  </CardHeader>
-  <CardContent>
-    <Alert>
-      <AlertTitle>Why Rust?</AlertTitle>
-      <AlertDescription>
-        Memory safety without a garbage collector. Blazing speed without fear. Community-driven innovation.
-      </AlertDescription>
-    </Alert>
+import { Callout } from "@/components/ui/callout"
+import { Accordion, AccordionItem } from "@/components/ui/accordion"
+import { CodeBlock } from "@/components/mdx/code-block"
 
-    <Tabs defaultValue="benefits" className="mt-6">
-      <TabsList>
-        <TabsTrigger value="benefits">🚀 Benefits</TabsTrigger>
-        <TabsTrigger value="philosophy">🧠 Philosophy</TabsTrigger>
-        <TabsTrigger value="community">🌍 Community</TabsTrigger>
-      </TabsList>
-      <TabsContent value="benefits">
-        <ul className="list-disc pl-4 space-y-2 mt-4">
-          <li><Badge variant="secondary">Safe</Badge> by default: say goodbye to segfaults.</li>
-          <li><Badge variant="outline">Fast</Badge> like C/C++, but with better tooling.</li>
-          <li><Badge>Productive</Badge> thanks to great compiler errors and ecosystem.</li>
-        </ul>
-      </TabsContent>
-      <TabsContent value="philosophy">
-        <blockquote className="mt-4 border-l-4 pl-4 italic">
-          “Fearless concurrency” isn’t just a tagline. It’s real. Rust forces you to think better.
-        </blockquote>
-      </TabsContent>
-      <TabsContent value="community">
-        <p className="mt-4">
-          Rustaceans are some of the friendliest developers out there. You’ll find help in forums, Discord, GitHub, and even IRL conferences.
-        </p>
-      </TabsContent>
-    </Tabs>
+# 🦀 Say Hello to Rust – Your New Favorite Programming Language
 
-    <Separator className="my-6" />
+<Callout icon="lightbulb" title="Why Rust?">
+Rust helps you write blazingly fast, crash-free programs with ease. It's modern, powerful, and friendly—even if you're just getting started.
+</Callout>
 
-    <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="hello-world">
-        <AccordionTrigger>👋 Let's Write Your First Rust Program</AccordionTrigger>
-        <AccordionContent>
-          <code className="block bg-muted p-4 rounded-md whitespace-pre overflow-x-auto">
-            fn main() {"{\n  println!(\"Hello, world!\");\n}"}
-          </code>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+Rust is a systems programming language focused on **performance**, **safety**, and **concurrency**. That means you can build everything from tiny tools to full-blown operating systems—without worrying about memory bugs.
 
-    <HoverCard>
-      <HoverCardTrigger asChild>
-        <Button className="mt-6">What is `println!`?</Button>
-      </HoverCardTrigger>
-      <HoverCardContent>
-        <strong>Macro Magic</strong><br />
-        `println!` is a macro in Rust. The `!` means it’s not just a function—it generates code!
-      </HoverCardContent>
-    </HoverCard>
+And no, you don’t need to be a C++ wizard to get started.
 
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline" className="mt-4">Want a sneak peek of Cargo?</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <p><strong>Cargo</strong> is Rust's build system and package manager.</p>
-        <Separator className="my-2" />
-        <code className="block bg-muted p-2 rounded-md text-sm">
-          cargo new hello-rust
-        </code>
-      </PopoverContent>
-    </Popover>
+## ✨ Key Features
 
-    <div className="mt-6">
-      <CodeBlock className="language-bash">
-        {`# Install Rust (official way)
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`}
-      </CodeBlock>
-    </div>
-  </CardContent>
-  <CardFooter className="flex justify-between">
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="ghost">🧪 Try Rust Online</Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          Try it instantly at <a href="https://play.rust-lang.org" target="_blank" className="underline text-blue-500">Rust Playground</a>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+- ✅ **Memory safety without a garbage collector**
+- ⚡ **Zero-cost abstractions** (you only pay for what you use)
+- 🔀 **Fearless concurrency**
+- 🧰 **Great tooling out of the box** (`cargo` is your new bestie)
+- ❤️ **A compiler that teaches, not punishes**
 
-    <Button variant="default">Next: 🛠️ Tooling & Ecosystem</Button>
-  </CardFooter>
-</Card>
+<Accordion type="single" collapsible>
+  <AccordionItem value="apps" title="🔧 What can you build with Rust?">
+    - CLI tools that feel instant  
+    - High-performance web servers  
+    - Games and game engines  
+    - Web apps via WebAssembly  
+    - Embedded and IoT software  
+    - Even OS-level stuff like kernels  
+  </AccordionItem>
+</Accordion>
+
+## 👀 Here’s What Rust Code Looks Like
+
+<CodeBlock language="rust">
+{`fn main() {
+    println!("Hello, Rustaceans!");
+}`}
+</CodeBlock>
+
+Looks simple, right? That’s just the beginning. The more you explore Rust, the more you’ll appreciate how much power it gives you—**without** making things messy.
+
+> _“Rust makes hard things possible, and easy things fun.”_ – probably a happy Rustacean
+
+---
+
+Next up: how to install Rust and get your first project running in minutes 🚀

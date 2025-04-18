@@ -1,0 +1,63 @@
+[
+    {
+      "section": "Basics",
+      "items": [
+        { "title": "Introduction", "link": "/introduction" },
+        { "title": "Getting Started", "link": "/getting-started" },
+        { "title": "Installation", "link": "/installation" },
+        { "title": "Hello, World!", "link": "/hello-world" },
+        { "title": "Variables & Mutability", "link": "/variables" },
+        { "title": "Data Types", "link": "/data-types" },
+        { "title": "Functions", "link": "/functions" },
+        { "title": "Control Flow", "link": "/control-flow" }
+      ]
+    },
+    {
+      "section": "Ownership & Memory",
+      "items": [
+        { "title": "Ownership", "link": "/ownership" },
+        { "title": "References & Borrowing", "link": "/borrowing" },
+        { "title": "Slices", "link": "/slices" }
+      ]
+    },
+    {
+      "section": "Collections & Error Handling",
+      "items": [
+        { "title": "Vectors", "link": "/vectors" },
+        { "title": "Strings", "link": "/strings" },
+        { "title": "HashMaps", "link": "/hashmaps" },
+        { "title": "Error Handling", "link": "/error-handling" }
+      ]
+    },
+    {
+      "section": "Structs, Enums & Pattern Matching",
+      "items": [
+        { "title": "Structs", "link": "/structs" },
+        { "title": "Enums", "link": "/enums" },
+        { "title": "Pattern Matching", "link": "/pattern-matching" }
+      ]
+    },
+    {
+      "section": "Advanced Topics",
+      "items": [
+        { "title": "Generics", "link": "/generics" },
+        { "title": "Traits", "link": "/traits" },
+        { "title": "Lifetimes", "link": "/lifetimes" },
+        { "title": "Closures", "link": "/closures" },
+        { "title": "Smart Pointers", "link": "/smart-pointers" },
+        { "title": "Concurrency", "link": "/concurrency" },
+        { "title": "Modules & Crates", "link": "/modules" },
+        { "title": "Testing", "link": "/testing" }
+      ]
+    },
+    {
+      "section": "Project & Ecosystem",
+      "items": [
+        { "title": "Cargo & Crates.io", "link": "/cargo" },
+        { "title": "Using External Libraries", "link": "/external-libraries" },
+        { "title": "Build a CLI App", "link": "/cli-app" },
+        { "title": "Useful Rust Tools", "link": "/tools" }
+      ]
+    }
+  ]
+  
