@@ -15,6 +15,7 @@ Check out the docs at: [learn.codeideal.com/rust](https://learn.codeideal.com/ru
 ## ✨ Features
 - Interactive, annotated code blocks:
 
+```jsx
 <CodeBlock
   language="rust"
   showLineNumbers
@@ -38,6 +39,7 @@ fn main() {
     res.unwrap();
 }
 `}</CodeBlock>
+```
 
 - Use [shadcn/ui](https://ui.shadcn.com/) components for beautiful alerts, tabs, and more
 - Supports both GitHub-flavored Markdown and custom components
