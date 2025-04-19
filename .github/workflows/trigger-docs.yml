@@ -1,0 +1,17 @@
+name: Trigger Docs Build
+
+on:
+  push:
+    branches: [main] # Change if your docs live elsewhere
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send repository_dispatch to builder repo
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: token ${{ secrets.DOCS_BUILD_TOKEN }}" \
+            https://api.github.com/repos/novincode/opendocs-builtdocs/dispatches \
+            -d '{"event_type": "rustdocs"}'
