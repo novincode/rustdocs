@@ -19,33 +19,20 @@ description: >
 
 Rust is a systems programming language focused on <strong>speed</strong>, <strong>safety</strong>, and <strong>concurrency</strong>. But don’t let the “systems” part scare you—Rust is as great for building blazing-fast web apps as it is for writing low-level code that runs close to the metal.
 
-<Accordion type="single" collapsible>
-  <AccordionItem value="why-love">
-    <AccordionTrigger>Why People ❤️ Rust</AccordionTrigger>
-    <AccordionContent>
-      <ul>
-        <li><strong>Memory safety</strong> without a garbage collector.</li>
-        <li><strong>Zero-cost abstractions</strong>—powerful features, no performance hit.</li>
-        <li><strong>Fearless concurrency</strong>—multithreaded code made easy.</li>
-        <li><strong>Amazing tooling</strong>—<code>cargo</code> makes building and testing a breeze.</li>
-        <li><strong>A friendly compiler</strong>—it nags, but it cares.</li>
-      </ul>
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="what-build">
-    <AccordionTrigger>What Can You Build with Rust?</AccordionTrigger>
-    <AccordionContent>
-      <ul>
-        <li>Lightning-fast CLI tools ⚡</li>
-        <li>Web servers and APIs 🌐</li>
-        <li>Embedded systems for IoT 🔧</li>
-        <li>Game engines 🎮</li>
-        <li>Operating systems 😎</li>
-        <li>Even front-end apps with WebAssembly 🕸️</li>
-      </ul>
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+## Why People ❤️ Rust
+- <strong>Memory safety</strong> without a garbage collector.
+- <strong>Zero-cost abstractions</strong>—powerful features, no performance hit.
+- <strong>Fearless concurrency</strong>—multithreaded code made easy.
+- <strong>Amazing tooling</strong>—<code>cargo</code> makes building and testing a breeze.
+- <strong>A friendly compiler</strong>—it nags, but it cares.
+
+## What Can You Build with Rust?
+- Lightning-fast CLI tools ⚡
+- Web servers and APIs 🌐
+- Embedded systems for IoT 🔧
+- Game engines 🎮
+- Operating systems 😎
+- Even front-end apps with WebAssembly 🕸️
 
 <Alert variant="secondary">
   <AlertDescription>
@@ -53,22 +40,10 @@ Rust is a systems programming language focused on <strong>speed</strong>, <stron
   </AlertDescription>
 </Alert>
 
-Here's your first Rust program, with some highlighted features:
+Here's your first Rust program:
 
-<CodeBlock
-  language="rust"
-  title="Hello World in Rust"
-  showLineNumbers
-  highlightLines={[2]}
-  focusLines={[3]}
-  wordsToHighlight={["println!"]}
-  annotations={[
-    { line: 2, message: "The main entry point.", style: "info" },
-    { line: 3, message: "Prints to the console.", style: "success" }
-  ]}
->{`
+<CodeBlock language="rust">{`
 fn main() {
-    // Entry point of every Rust program
     println!("Hello, Rustacean! 🦀");
 }
 `}</CodeBlock>

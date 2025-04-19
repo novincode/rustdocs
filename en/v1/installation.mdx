@@ -23,135 +23,44 @@ Welcome to your first step in becoming a Rustacean! 🦀 Whether you're a comple
   </AlertDescription>
 </Alert>
 
-<Accordion type="single" collapsible>
-  <AccordionItem value="step-1">
-    <AccordionTrigger>🧑‍💻 Step 1: Open Your Terminal</AccordionTrigger>
-    <AccordionContent>
-      <Alert variant="secondary">
-        <AlertDescription>
-          Choose your OS and run the following command in your terminal:
-        </AlertDescription>
-      </Alert>
-      <Tabs defaultValue="macos-linux">
-        <TabsList>
-          <TabsTrigger value="macos-linux">macOS / Linux</TabsTrigger>
-          <TabsTrigger value="windows">Windows</TabsTrigger>
-        </TabsList>
-        <TabsContent value="macos-linux">
-          <CodeBlock
-            language="bash"
-            title="Install Rust via rustup (macOS/Linux)"
-            showLineNumbers
-            highlightLines={[1]}
-            annotations={[{ line: 1, message: "Recommended for most users.", style: "info" }]}
-          >{`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`}</CodeBlock>
-        </TabsContent>
-        <TabsContent value="windows">
-          <Alert variant="secondary">
-            <AlertDescription>
-              Download and run the <a href="https://win.rustup.rs" target="_blank" rel="noopener">Rust installer for Windows</a>.<br/>
-              (It includes a command line terminal if you don't already have one!)
-            </AlertDescription>
-          </Alert>
-        </TabsContent>
-      </Tabs>
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="step-2">
-    <AccordionTrigger>⚙️ Step 2: Follow the Prompts</AccordionTrigger>
-    <AccordionContent>
-      <ul>
-        <li>You’ll be asked if you want to proceed with the <strong>default installation</strong>.</li>
-        <li>Press <strong>Enter</strong> to confirm — this is great for most users.</li>
-        <li>That’s it! The installer will take care of the rest. ✨</li>
-      </ul>
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="step-3">
-    <AccordionTrigger>🔁 Step 3: Restart Your Terminal</AccordionTrigger>
-    <AccordionContent>
-      <Alert variant="secondary">
-        <AlertDescription>
-          To make sure your shell recognizes the new commands, <strong>close and reopen</strong> your terminal.
-        </AlertDescription>
-      </Alert>
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="step-4">
-    <AccordionTrigger>🧪 Step 4: Verify Your Installation</AccordionTrigger>
-    <AccordionContent>
-      <CodeBlock
-        language="bash"
-        title="Check Rust Compiler Version"
-        showLineNumbers
-        highlightLines={[1]}
-        annotations={[{ line: 1, message: "Check if Rust is installed.", style: "info" }]}
-      >{`rustc --version`}</CodeBlock>
-      <CodeBlock
-        language="bash"
-        title="Check Cargo Version"
-        showLineNumbers
-        highlightLines={[1]}
-        annotations={[{ line: 1, message: "Cargo is Rust’s package manager.", style: "info" }]}
-      >{`cargo --version`}</CodeBlock>
-      <Alert variant="success">
-        <AlertDescription>
-          If you see something like <code>rustc 1.77.0</code>, you’re golden! 🌟
-        </AlertDescription>
-      </Alert>
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="step-5">
-    <AccordionTrigger>👇 Optional: Add Rust to PATH (If Needed)</AccordionTrigger>
-    <AccordionContent>
-      <Tabs defaultValue="macos-linux">
-        <TabsList>
-          <TabsTrigger value="macos-linux">macOS / Linux</TabsTrigger>
-          <TabsTrigger value="windows">Windows</TabsTrigger>
-        </TabsList>
-        <TabsContent value="macos-linux">
-          <CodeBlock
-            language="bash"
-            title="Add Rust to PATH (macOS/Linux)"
-            showLineNumbers
-            highlightLines={[1]}
-            annotations={[{ line: 1, message: "Run this if you get 'command not found'.", style: "warning" }]}
-          >{`source $HOME/.cargo/env`}</CodeBlock>
-        </TabsContent>
-        <TabsContent value="windows">
-          <Alert variant="secondary">
-            <AlertDescription>
-              Restart the terminal or add <code>%USERPROFILE%\.cargo\bin</code> to your system environment variables.
-            </AlertDescription>
-          </Alert>
-        </TabsContent>
-      </Tabs>
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="step-6">
-    <AccordionTrigger>🆕 Keeping Rust Up to Date</AccordionTrigger>
-    <AccordionContent>
-      <CodeBlock
-        language="bash"
-        title="Update Rust Toolchain"
-        showLineNumbers
-        highlightLines={[1]}
-        annotations={[{ line: 1, message: "Stay on the latest stable version.", style: "info" }]}
-      >{`rustup update`}</CodeBlock>
-      <CodeBlock
-        language="bash"
-        title="Install Nightly or Switch Versions"
-        showLineNumbers
-        highlightLines={[1,2]}
-        annotations={[
-          { line: 1, message: "Install nightly build.", style: "info" },
-          { line: 2, message: "Switch back to stable.", style: "info" }
-        ]}
-      >{`rustup install nightly
-rustup default stable`}</CodeBlock>
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+## 1. Install Rust
+
+### macOS / Linux
+Run this command in your terminal:
+<CodeBlock language="bash">{`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`}</CodeBlock>
+
+### Windows
+Download and run the <a href="https://win.rustup.rs" target="_blank" rel="noopener">Rust installer for Windows</a>.
+
+## 2. Follow the Prompts
+- Proceed with the <strong>default installation</strong> (recommended for most users).
+- Press <strong>Enter</strong> to confirm.
+- The installer will handle the rest.
+
+## 3. Restart Your Terminal
+To ensure your shell recognizes the new commands, <strong>close and reopen</strong> your terminal.
+
+## 4. Verify Your Installation
+<CodeBlock language="bash">{`rustc --version`}</CodeBlock>
+<CodeBlock language="bash">{`cargo --version`}</CodeBlock>
+If you see something like <code>rustc 1.77.0</code>, you’re golden! 🌟
+
+## 5. (Optional) Add Rust to PATH
+If you get a <code>command not found</code> error after installation:
+
+### macOS / Linux
+<CodeBlock language="bash">{`source $HOME/.cargo/env`}</CodeBlock>
+
+### Windows
+Restart the terminal or add <code>%USERPROFILE%\.cargo\bin</code> to your system environment variables.
+
+## 6. Keeping Rust Up to Date
+To update Rust:
+<CodeBlock language="bash">{`rustup update`}</CodeBlock>
+
+To install nightly or switch versions:
+<CodeBlock language="bash">{`rustup install nightly`}</CodeBlock>
+<CodeBlock language="bash">{`rustup default stable`}</CodeBlock>
 
 <Alert variant="secondary">
   <AlertDescription>
