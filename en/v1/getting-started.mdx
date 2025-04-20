@@ -7,28 +7,133 @@ version: v1
 date: 2025-04-20
 ---
 
-Welcome to your Rust journey!! Before we dive in, here’s a taste of what Rust code can look like when you combine many of its powerful features:
-<CodeBlock
-  language="rust"
-  showLineNumbers
-  highlightLines={[2, 5, 10]}
-  focusLines={[5, 6]}
-  wordsToHighlight={["unsafe", "unwrap", "Result"]}
-  annotations={[
-    { line: 2, message: "This is the main function!", style: "info" },
-    { line: 5, message: "Be careful with unsafe code.", style: "warning" },
-    { line: 10, message: "Handle errors properly!", style: "error" }
-  ]}
->{`
-fn main() {
-    // Entry point
-    let nums = vec![1, 2, 3, 4, 5];
-    let sum: i32 = nums.iter().sum();
-    unsafe {
-        println!("Sum (unsafe!): {}", sum);
-    }
-    let res: Result<(), &str> = Err("Oops!");
-    res.unwrap();
-}
-`}</CodeBlock>
-This example demonstrates Rust’s syntax, macros, enums, pattern matching, error handling, generics, lifetimes, attributes, doc comments, raw strings, and more. Try editing and highlighting your own code next! 🚀
+# 🦀 Getting Started with Rust
+
+<Alert variant="success">
+  <AlertTitle>Welcome!</AlertTitle>
+  <AlertDescription>
+    Whether you're here to build lightning-fast web apps, master systems programming, or just explore a powerful new language — <strong>Rust</strong> has your back.
+  </AlertDescription>
+</Alert>
+
+In this quick guide, you'll set up your environment and write your very first Rust program. It's gonna be smooth, fun, and beginner-friendly — promise! 😄
+
+---
+
+## 📥 Step 1: Install Rust
+
+Rust has an official installer that works on <strong>macOS</strong>, <strong>Linux</strong>, and <strong>Windows</strong>.
+
+<CodeBlock language="bash">{`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`}</CodeBlock>
+
+<Alert variant="secondary">
+  <AlertDescription>
+    ✅ This will install <code>rustc</code> (the compiler), <code>cargo</code> (the package manager), and <code>rustup</code> (the version manager).
+  </AlertDescription>
+</Alert>
+
+After it's done, restart your terminal and check:
+
+<CodeBlock language="bash">{`rustc --version`}</CodeBlock>
+<CodeBlock language="bash">{`cargo --version`}</CodeBlock>
+
+Boom 💥! You're ready.
+
+---
+
+## 📂 Step 2: Create Your First Project
+
+Let’s make a simple Rust app (no setup hell here 😌):
+
+<CodeBlock language="bash">{`cargo new hello-rust
+cd hello-rust`}</CodeBlock>
+
+You'll see:
+
+```text
+hello-rust/
+ ┣ Cargo.toml       // Project config & dependencies
+ ┗ src/
+   ┗ main.rs        // Your code lives here
+```
+
+Now run your app:
+
+<CodeBlock language="bash">{`cargo run`}</CodeBlock>
+
+And you’ll see:
+
+```text
+Hello, world!
+```
+
+🎉 Congrats — you just wrote and ran your first Rust program!
+
+---
+
+## 🛠 What's Next?
+
+Here’s what you’ll learn next (don’t worry, it’s all broken down step-by-step in this guide):
+
+- 📦 What <code>cargo</code> actually does (hint: it’s magic)
+- 🧠 Variables, types, and functions in Rust
+- 🔐 Memory safety without garbage collection
+- 🧵 Ownership, borrowing, and lifetimes (explained with love, not fear)
+- 🧪 Testing your code
+- 🧰 Building command-line apps, APIs, and even web apps with Rust!
+
+---
+
+## 💬 Why Rust?
+
+<RoundedCard>
+  <ul>
+    <li>🧠 <strong>Smart compiler</strong> that catches bugs before you even run your code</li>
+    <li>🚀 <strong>Fast</strong> as C/C++ — but much safer</li>
+    <li>📦 <strong>Rich ecosystem</strong> (check out <a href="https://crates.io" target="_blank" rel="noopener">crates.io</a>)</li>
+    <li>🤝 Backed by a great community, awesome docs, and real-world use (Dropbox, AWS, Discord, etc.)</li>
+  </ul>
+</RoundedCard>
+
+---
+
+## 📚 Learn by Doing
+
+This guide is hands-on. You’ll <strong>build real stuff</strong> while learning:
+
+- A to-do app in the terminal 📝
+- A basic API with <code>axum</code> 🌐
+- A WASM-powered web app 💻
+
+---
+
+## ❤️ Made for You
+
+<Alert variant="success">
+  <AlertDescription>
+    This Rust guide is:
+    <ul>
+      <li>✅ Beginner-friendly</li>
+      <li>✅ No fluff, no walls of boring text</li>
+      <li>✅ Made with ❤️ by someone who struggled with “boring tutorials” too</li>
+    </ul>
+  </AlertDescription>
+</Alert>
+
+---
+
+## 🚀 Let’s Go
+
+Ready to become a Rustacean?
+
+<Button asChild size="lg">
+  <a href="#">Start the next chapter: Understanding Cargo →</a>
+</Button>
+
+Or if you’re a TL;DR kind of dev, jump right to the <a href="#">Quick Start Cheatsheet</a>.
+
+---
+
+<blockquote>
+  <em>Want it more tailored to your tone or site design? Just drop me a bit more of your style (e.g. is this aimed at devs who hate theory? students? people scared of C++?), and I’ll adjust the vibe 💪</em>
+</blockquote>
