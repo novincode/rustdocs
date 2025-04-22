@@ -1,0 +1,69 @@
+---
+title: Hello World in Rust | Your First Rust Docs Page
+description: >
+  Learn how to write and document your first Rust program! This fun, beginner-friendly guide shows you how to create a documented "Hello, World!" library and view your docs with cargo doc.
+slug: hello-world
+version: v1
+date: 2025-04-22
+---
+
+# 🦀 Your First Rust Docs Page: Hello, World! Style
+
+So you just started learning Rust and want your code to look pro? Let’s write a **Hello, World!** that’s not just code—it’s documented code.
+
+---
+
+## ✨ Step 1: Make a New Project
+
+Open your terminal and type:
+
+<CodeBlock language="bash">{`cargo new hello_docs
+cd hello_docs`}</CodeBlock>
+
+---
+
+## ✍️ Step 2: Add Some Friendly Docs
+
+Open <code>src/lib.rs</code> and use this:
+
+<CodeBlock
+  language="rust"
+  showLineNumbers
+  highlightLines={[1, 8]}
+  wordsToHighlight={["say_hello"]}
+  annotations={[
+    { line: 1, message: "Crate-level doc comment.", style: "info" },
+    { line: 8, message: "Function doc comment.", style: "info" }
+  ]}
+>{`//! Welcome to hello_docs\n//! Prints Hello, world!\n\n/// Prints hello\npub fn say_hello() {\n    println!("Hello, world!");\n}`}</CodeBlock>
+
+---
+
+## 🔍 Step 3: See the Magic
+
+<CodeBlock language="bash">{`cargo doc --open`}</CodeBlock>
+
+---
+
+## ✅ Bonus: Make It Run
+
+Edit <code>src/main.rs</code>:
+
+<CodeBlock language="rust">{`fn main() {\n    hello_docs::say_hello();\n}`}</CodeBlock>
+
+And in <code>Cargo.toml</code>:
+
+<CodeBlock language="toml">{`[lib]\npath = "src/lib.rs"`}</CodeBlock>
+
+---
+
+## 💡 Tips for Writing Docs
+
+- Use <code>//! </code> for crate docs
+- Use <code>///</code> for functions
+- Show examples with triple backticks
+- Be clear and friendly
+
+---
+
+Let me know if you want to turn this into a template or generate docs for a full crate! 🚀
