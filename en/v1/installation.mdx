@@ -23,12 +23,19 @@ Welcome to your first step in becoming a Rustacean! 🦀 Whether you're a comple
 
 ## 1. Install Rust
 
-### macOS / Linux
-Run this command in your terminal:
-<CodeBlock language="bash">{`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`}</CodeBlock>
-
-### Windows
-Download and run the <a href="https://win.rustup.rs" target="_blank" rel="noopener">Rust installer for Windows</a>.
+<Tabs defaultValue="macos-linux">
+  <TabsList>
+    <TabsTrigger value="macos-linux">macOS / Linux</TabsTrigger>
+    <TabsTrigger value="windows">Windows</TabsTrigger>
+  </TabsList>
+  <TabsContent value="macos-linux">
+    Run this command in your terminal:
+    <CodeBlock language="bash">{`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`}</CodeBlock>
+  </TabsContent>
+  <TabsContent value="windows">
+    Download and run the <a href="https://win.rustup.rs" target="_blank" rel="noopener">Rust installer for Windows</a>.
+  </TabsContent>
+</Tabs>
 
 ## 2. Follow the Prompts
 - Proceed with the <strong>default installation</strong> (recommended for most users).
