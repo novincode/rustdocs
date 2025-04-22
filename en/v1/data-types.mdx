@@ -1,0 +1,142 @@
+---
+title: Rust Data Types | Scalars, Compounds, and Type Inference
+description: >
+  Discover Rust's core data types! This guide covers scalar and compound types, type inference, and best practices—with hands-on code, shadcn components, and fun explanations.
+slug: data-types
+version: v1
+date: 2025-04-23
+---
+
+# 📦 Rust Data Types
+
+<Alert variant="success">
+  <AlertTitle>Statically Typed, but Smart!</AlertTitle>
+  <AlertDescription>
+    Rust is a <strong>statically typed</strong> language—every variable has a type. But thanks to <strong>type inference</strong>, you don’t always have to write them out!
+  </AlertDescription>
+</Alert>
+
+---
+
+## ✨ Scalar Types
+
+Scalar types represent a <strong>single value</strong>. There are four:
+
+- <code>i32</code>, <code>u64</code>, etc. — Integers (signed & unsigned)
+- <code>f32</code>, <code>f64</code> — Floating-point numbers
+- <code>bool</code> — true or false
+- <code>char</code> — a single character like <code>'a'</code>, <code>'🦀'</code>
+
+<CodeBlock
+  language="rust"
+  showLineNumbers
+  highlightLines={[1,2,3,4]}
+  wordsToHighlight={["i32", "f64", "bool", "char", "score", "pi", "is_rust_fun", "letter"]}
+  annotations={[
+    { line: 1, message: "Integer", style: "info" },
+    { line: 2, message: "Floating-point", style: "info" },
+    { line: 3, message: "Boolean", style: "info" },
+    { line: 4, message: "Character", style: "info" }
+  ]}
+>{`let score: i32 = 42;
+let pi: f64 = 3.14;
+let is_rust_fun: bool = true;
+let letter: char = 'R';`}</CodeBlock>
+
+Rust will <strong>infer types</strong> if you don't specify them (when it makes sense):
+
+<CodeBlock
+  language="rust"
+  showLineNumbers
+  highlightLines={[1,2]}
+  wordsToHighlight={["lucky", "truth"]}
+  annotations={[
+    { line: 1, message: "Rust guesses i32", style: "info" },
+    { line: 2, message: "Rust guesses bool", style: "info" }
+  ]}
+>{`let lucky = 7;
+let truth = false;`}</CodeBlock>
+
+---
+
+## 🧱 Compound Types
+
+Compound types can hold <strong>multiple values</strong>. Two big ones:
+
+### 1. Tuples
+Group different types together.
+
+<CodeBlock
+  language="rust"
+  showLineNumbers
+  highlightLines={[1,2]}
+  wordsToHighlight={["person", "Alice", "30"]}
+  annotations={[
+    { line: 1, message: "Tuple with &str and i32", style: "info" },
+    { line: 2, message: "Access tuple fields", style: "info" }
+  ]}
+>{`let person: (&str, i32) = ("Alice", 30);
+println!("Name: {}, Age: {}", person.0, person.1);`}</CodeBlock>
+
+### 2. Arrays
+Fixed-size lists of same-type values.
+
+<CodeBlock
+  language="rust"
+  showLineNumbers
+  highlightLines={[1,2]}
+  wordsToHighlight={["numbers", "0"]}
+  annotations={[
+    { line: 1, message: "Array of i32", style: "info" },
+    { line: 2, message: "Access by index", style: "info" }
+  ]}
+>{`let numbers = [1, 2, 3, 4, 5];
+println!("First number: {}", numbers[0]);`}</CodeBlock>
+
+<Alert variant="secondary">
+  <AlertDescription>
+    📌 Arrays have a fixed size. If you need a growable list, you'll want a <code>Vec</code> (we’ll get there 😉).
+  </AlertDescription>
+</Alert>
+
+---
+
+## 🧠 Type Annotations: When & Why?
+
+Sometimes, Rust needs a little help figuring things out:
+
+<CodeBlock
+  language="rust"
+  showLineNumbers
+  highlightLines={[1]}
+  wordsToHighlight={["guess", "u8", "parse", "unwrap"]}
+  annotations={[
+    { line: 1, message: "Explicit type needed for parse()", style: "warning" }
+  ]}
+>{`let guess: u8 = "42".parse().unwrap();`}</CodeBlock>
+
+Be explicit when:
+- You call <code>.parse()</code>
+- You want clarity in your code
+- You’re working with multiple number types
+
+---
+
+## 🎯 Summary
+
+- Scalar types: <code>i32</code>, <code>f64</code>, <code>bool</code>, <code>char</code>
+- Compound types: <code>tuple</code>, <code>array</code>
+- Rust <strong>infers</strong> most types unless it gets confused
+- Use type annotations when needed for clarity or to satisfy the compiler
+
+---
+
+<Alert variant="success">
+  <AlertDescription>
+    🦀 Rust is type-safe but <strong>not intimidating</strong>—it just wants to be clear and correct!
+  </AlertDescription>
+</Alert>
+
+<Button asChild size="lg">
+  <a href="#">Next: Functions in Rust →</a>
+</Button>

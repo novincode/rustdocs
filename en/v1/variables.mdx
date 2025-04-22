@@ -1,0 +1,105 @@
+---
+title: Rust Variables Explained | Mutability, Types, and Best Practices
+description: >
+  Learn how variables work in Rust! This fun, beginner-friendly guide covers mutability, types, shadowing, and best practices—with hands-on code and clear examples.
+slug: variables
+version: v1
+date: 2025-04-23
+---
+
+# 📝 Variables in Rust: Simple, Safe, and Powerful
+
+<Alert variant="success">
+  <AlertTitle>What are variables?</AlertTitle>
+  <AlertDescription>
+    Variables let you store and work with data in your programs. In Rust, they’re safe, fast, and a little different from what you might know!
+  </AlertDescription>
+</Alert>
+
+---
+
+## ✨ Declaring Variables
+
+<CodeBlock
+  language="rust"
+  showLineNumbers
+  highlightLines={[1, 2, 3]}
+  wordsToHighlight={["let", "mut", "x", "y", "z"]}
+  annotations={[
+    { line: 1, message: "Immutable variable (default)", style: "info" },
+    { line: 2, message: "Mutable variable (can change)", style: "info" },
+    { line: 3, message: "Explicit type annotation", style: "info" }
+  ]}
+>{`let x = 5;
+let mut y = 10;
+let z: f64 = 3.14;`}</CodeBlock>
+
+- `let` creates a variable (immutable by default)
+- `mut` makes it mutable (you can change it)
+- You can add a type (like `f64`) if you want
+
+---
+
+## 🔄 Changing Values (Mutability)
+
+<CodeBlock
+  language="rust"
+  showLineNumbers
+  highlightLines={[2]}
+  wordsToHighlight={["mut", "y"]}
+  annotations={[
+    { line: 2, message: "Now you can change y!", style: "info" }
+  ]}
+>{`let mut y = 10;
+y = 20;`}</CodeBlock>
+
+<Alert variant="warning">
+  <AlertDescription>
+    <strong>Tip:</strong> If you forget <code>mut</code>, Rust will give you a friendly error!
+  </AlertDescription>
+</Alert>
+
+---
+
+## 🕵️ Shadowing: Reuse Names, Change Types
+
+<CodeBlock
+  language="rust"
+  showLineNumbers
+  highlightLines={[2, 3]}
+  wordsToHighlight={["let", "x"]}
+  annotations={[
+    { line: 2, message: "Shadowing: new value, same name", style: "info" },
+    { line: 3, message: "Shadowing can change type", style: "info" }
+  ]}
+>{`let x = 5;
+let x = x + 1;
+let x = "now I'm a string!";`}</CodeBlock>
+
+- Shadowing lets you reuse a variable name
+- You can even change its type!
+
+---
+
+## 🧠 Best Practices
+
+- Prefer immutability (`let`) unless you need to change the value
+- Use clear, descriptive names
+- Shadowing is great for transformations
+- Type annotations are optional, but can help with clarity
+
+---
+
+<Alert variant="secondary">
+  <AlertDescription>
+    🦀 <strong>Pro Tip:</strong> Rust’s compiler is your friend. If you make a mistake, it’ll tell you exactly what’s wrong (and how to fix it)!
+  </AlertDescription>
+</Alert>
+
+---
+
+## 🚀 Next Up
+
+<Button asChild size="lg">
+  <a href="#">Learn about Functions →</a>
+</Button>
