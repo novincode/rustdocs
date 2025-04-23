@@ -30,7 +30,6 @@ Scalar types represent a <strong>single value</strong>. There are four:
 <CodeBlock
   language="rust"
   showLineNumbers
-  highlightLines={[1,2,3,4]}
   wordsToHighlight={["i32", "f64", "bool", "char", "score", "pi", "is_rust_fun", "letter"]}
   annotations={[
     { line: 1, message: "Integer", style: "info" },
@@ -48,7 +47,6 @@ Rust will <strong>infer types</strong> if you don't specify them (when it makes 
 <CodeBlock
   language="rust"
   showLineNumbers
-  highlightLines={[1,2]}
   wordsToHighlight={["lucky", "truth"]}
   annotations={[
     { line: 1, message: "Rust guesses i32", style: "info" },
@@ -69,7 +67,6 @@ Group different types together.
 <CodeBlock
   language="rust"
   showLineNumbers
-  highlightLines={[1,2]}
   wordsToHighlight={["person", "Alice", "30"]}
   annotations={[
     { line: 1, message: "Tuple with &str and i32", style: "info" },
@@ -84,7 +81,6 @@ Fixed-size lists of same-type values.
 <CodeBlock
   language="rust"
   showLineNumbers
-  highlightLines={[1,2]}
   wordsToHighlight={["numbers", "0"]}
   annotations={[
     { line: 1, message: "Array of i32", style: "info" },
@@ -108,7 +104,6 @@ Sometimes, Rust needs a little help figuring things out:
 <CodeBlock
   language="rust"
   showLineNumbers
-  highlightLines={[1]}
   wordsToHighlight={["guess", "u8", "parse", "unwrap"]}
   annotations={[
     { line: 1, message: "Explicit type needed for parse()", style: "warning" }
@@ -136,7 +131,3 @@ Be explicit when:
     🦀 Rust is type-safe but <strong>not intimidating</strong>—it just wants to be clear and correct!
   </AlertDescription>
 </Alert>
-
-<Button asChild size="lg">
-  <a href="#">Next: Functions in Rust →</a>
-</Button>
