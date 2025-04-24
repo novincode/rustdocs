@@ -1,0 +1,198 @@
+---
+title: Understanding Slices in Rust | Borrowing Parts of Collections
+slug: slices
+version: v1
+description: >
+  Learn how to use Rust slices to efficiently reference portions of collections without taking ownership. This beginner-friendly guide covers array slices, string slices, and best practices for safe code.
+---
+
+## 🧩 Slices in Rust <Badge variant="outline">Beginner Friendly</Badge>
+
+Slices let you reference a portion of a collection without taking ownership. They're one of Rust's most powerful features that helps write efficient, safe code.
+
+<Alert>
+  <AlertTitle>Why are slices important?</AlertTitle>
+  <AlertDescription>
+    <ul>
+      <li>They allow you to work with just part of a collection</li>
+      <li>They prevent unnecessary data copying</li>
+      <li>They enforce memory safety at compile time</li>
+    </ul>
+  </AlertDescription>
+</Alert>
+
+## What is a Slice?
+
+A **slice** is a reference to a contiguous sequence of elements in a collection. Think of it like saying:
+
+> "I want to look at *this part* of the data, not take the whole thing."
+
+In Rust, slices are written as `&[T]` for arrays/vectors and `&str` for strings.
+
+## 📏 Slicing an Array
+
+<CodeBlock 
+  language="rust" 
+  showLineNumbers 
+  highlightLines={[4]}
+  annotations={[
+    { line: 4, message: "This creates a slice from index 1 to 3 (not including 4)", style: "info" }
+  ]}
+>{`fn main() {
+    let nums = [10, 20, 30, 40, 50];
+
+    let slice = &nums[1..4]; // Takes elements 1, 2, and 3
+    println!("Slice: {:?}", slice); // Output: [20, 30, 40]
+}`}</CodeBlock>
+
+## 🧵 Slice Syntax Reference
+
+Here's a quick guide to the different ways you can create slices:
+
+<Table>
+  <TableCaption>Common Slice Patterns</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Syntax</TableHead>
+      <TableHead>Description</TableHead>
+      <TableHead>Example</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code>&arr[a..b]</code></TableCell>
+      <TableCell>Elements from index <code>a</code> to <code>b-1</code></TableCell>
+      <TableCell><code>&nums[1..4]</code> gives <code>[20, 30, 40]</code></TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>&arr[..b]</code></TableCell>
+      <TableCell>Elements from start to <code>b-1</code></TableCell>
+      <TableCell><code>&nums[..2]</code> gives <code>[10, 20]</code></TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>&arr[a..]</code></TableCell>
+      <TableCell>Elements from <code>a</code> to the end</TableCell>
+      <TableCell><code>&nums[3..]</code> gives <code>[40, 50]</code></TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>&arr[..]</code></TableCell>
+      <TableCell>The entire collection</TableCell>
+      <TableCell><code>&nums[..]</code> gives <code>[10, 20, 30, 40, 50]</code></TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+<CodeBlock language="rust">{`let nums = [10, 20, 30, 40, 50];
+let full = &nums[..];      // [10, 20, 30, 40, 50]
+let first_two = &nums[..2]; // [10, 20]
+let last_two = &nums[3..];  // [40, 50]`}</CodeBlock>
+
+## 📚 Slices in Functions
+
+One of the most common uses for slices is in function parameters:
+
+<CodeBlock 
+  language="rust" 
+  showLineNumbers
+  highlightLines={[1, 8]}
+  annotations={[
+    { line: 1, message: "This function accepts any slice of i32 values", style: "info" },
+    { line: 8, message: "We pass just a portion of the array", style: "info" }
+  ]}
+>{`fn print_slice(slice: &[i32]) {
+    for val in slice {
+        println!("{}", val);
+    }
+}
+
+fn main() {
+    let nums = [1, 2, 3, 4, 5];
+    print_slice(&nums[1..4]); // Only passes [2, 3, 4]
+}`}</CodeBlock>
+
+This pattern allows functions to work with any part of an array or vector without knowing its size in advance!
+
+## 🔐 Safety First: Slice Bounds
+
+Rust prevents you from accessing elements outside a collection's bounds:
+
+<CodeBlock 
+  language="rust"
+  showLineNumbers
+  highlightLines={[3]}
+  annotations={[
+    { line: 3, message: "This will cause the program to panic at runtime", style: "warning" }
+  ]}
+>{`fn main() {
+    let nums = [1, 2, 3];
+    let slice = &nums[1..4]; // ❌ Panic: index out of bounds
+}`}</CodeBlock>
+
+This runtime check helps catch bugs early rather than causing undefined behavior.
+
+## 📜 String Slices
+
+String slices (`&str`) are special because strings in Rust are UTF-8 encoded:
+
+<CodeBlock 
+  language="rust"
+  showLineNumbers
+>{`fn main() {
+    let message = String::from("hello world");
+    let hello = &message[0..5];
+    println!("{}", hello); // "hello"
+    
+    // Be careful with non-ASCII characters!
+    let greeting = "नमस्ते"; // Hindi greeting
+    // This would panic - can't slice in the middle of a character
+    // let bad_slice = &greeting[0..1]; 
+}`}</CodeBlock>
+
+<Alert variant="warning">
+  <AlertTitle>⚠️ String Slice Safety</AlertTitle>
+  <AlertDescription>
+    Always be careful when slicing strings containing non-ASCII characters. Slicing must occur on valid UTF-8 character boundaries or your program will panic!
+  </AlertDescription>
+</Alert>
+
+## The Relationship to References
+
+String slices (`&str`) are just slices of `String` data - they're references to parts of strings:
+
+<CodeBlock 
+  language="rust"
+  showLineNumbers
+  highlightLines={[3, 7]}
+>{`fn main() {
+    // String literal - is already a &str
+    let greeting = "Hello";
+    
+    // Owned String
+    let message = String::from("Hello, world!");
+    let hello = &message[0..5]; // &str slice of String
+    
+    // Function that takes &str
+    takes_slice(greeting);
+    takes_slice(hello);
+    takes_slice(&message); // Entire String converts to &str
+}
+
+fn takes_slice(s: &str) {
+    println!("{}", s);
+}`}</CodeBlock>
+
+## ✅ Recap
+
+<Alert variant="success">
+  <AlertDescription>
+    <ul>
+      <li><strong>Slices</strong> let you borrow parts of collections without taking ownership</li>
+      <li>They're always references (<code>&</code>)</li>
+      <li>Common forms: <code>&[T]</code> for arrays/vectors and <code>&str</code> for strings</li>
+      <li>They make functions more flexible by working with parts of collections</li>
+      <li>They enforce bounds checking to prevent memory errors</li>
+    </ul>
+  </AlertDescription>
+</Alert>
+
+Mastering slices is essential for efficient Rust code. They're a perfect example of how Rust achieves both performance and safety by default! 🚀
