@@ -1,0 +1,130 @@
+---
+title: Rust References & Borrowing | Safe Access Without Ownership
+description: >
+  Learn how references and borrowing work in Rust! This guide covers immutable and mutable references, borrowing rules, and how Rust prevents memory bugs—beginner-friendly and hands-on.
+slug: borrowing
+version: v1
+date: 2025-04-24
+---
+
+# 🔗 References & Borrowing in Rust
+
+<Alert variant="success">
+  <AlertTitle>Why Borrowing?</AlertTitle>
+  <AlertDescription>
+    References let you **access data without taking ownership**. This is how Rust lets you write safe, fast code—no garbage collector, no memory bugs!
+  </AlertDescription>
+</Alert>
+
+---
+
+## 📌 What Is a Reference?
+
+A **reference** lets you **borrow** a value **without taking ownership**.
+
+<CodeBlock language="rust" showLineNumbers>{`fn main() {
+    let s1 = String::from("hello");
+    let len = calculate_length(&s1); // Borrowing with &
+
+    println!("The length of '{}' is {}.", s1, len); // ✅ s1 still valid!
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}`}</CodeBlock>
+
+`&s1` creates a **reference to `s1`**, and the function `calculate_length` borrows it.
+
+✅ This means the original value **isn’t moved**, and you can still use it later!
+
+---
+
+## 📏 Immutable References (the default)
+
+By default, references are **immutable**, meaning you can *read* the data but not *change* it.
+
+<CodeBlock language="rust" showLineNumbers>{`fn main() {
+    let s = String::from("hello");
+    print_string(&s); // OK
+
+    // s is still valid here
+}
+
+fn print_string(text: &String) {
+    println!("{}", text);
+}`}</CodeBlock>
+
+You can create **multiple immutable references** at the same time:
+
+<CodeBlock language="rust" showLineNumbers>{`let s = String::from("hi");
+let r1 = &s;
+let r2 = &s;
+
+println!("{}, {}", r1, r2); // ✅ works!`}</CodeBlock>
+
+---
+
+## 🛠️ Mutable References
+
+If you want to **change** a borrowed value, you need a **mutable reference** using `&mut`:
+
+<CodeBlock language="rust" showLineNumbers>{`fn main() {
+    let mut s = String::from("hello");
+    change(&mut s);
+    println!("{}", s); // "hello, world"
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}`}</CodeBlock>
+
+👉 **Rules for mutable references**:
+- You can have **only ONE** mutable reference to a piece of data **at a time**.
+
+❌ This won't work:
+
+<CodeBlock language="rust" showLineNumbers>{`let mut s = String::from("oops");
+let r1 = &mut s;
+let r2 = &mut s; // ❌ Error: cannot borrow 's' as mutable more than once`}</CodeBlock>
+
+Rust enforces this at compile-time to prevent **data races**.
+
+✅ But you *can* use a mutable reference after an earlier one is done:
+
+<CodeBlock language="rust" showLineNumbers>{`let mut s = String::from("okay");
+
+{
+    let r1 = &mut s;
+    r1.push_str("!");
+} // r1 goes out of scope here
+
+let r2 = &mut s; // Now this is OK`}</CodeBlock>
+
+---
+
+## 🚫 Dangling References
+
+Rust **does not allow dangling references** — that is, references to data that no longer exists:
+
+<CodeBlock language="rust" showLineNumbers>{`// ❌ Won't compile
+fn dangle() -> &String {
+    let s = String::from("nope");
+    &s // Error: 's' will be dropped!
+}`}</CodeBlock>
+
+The value `s` gets dropped at the end of the function. Returning a reference to it would be dangerous, so Rust **prevents** this entirely. 🛡️
+
+---
+
+## 🧠 Summary
+
+- `&T` = immutable reference (read-only)
+- `&mut T` = mutable reference (can modify the value)
+- Multiple **immutable** references are allowed
+- Only **one mutable** reference is allowed at a time
+- References let you **borrow data without taking ownership**
+- Rust stops you from using invalid or dangling references at compile time
+
+This is one of Rust’s superpowers: **you can write fast, safe code without fear of memory bugs** 💥🦀
+
+Next up: **Slices** – where we dive deeper into referencing *parts* of data!

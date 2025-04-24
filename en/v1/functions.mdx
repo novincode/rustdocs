@@ -1,0 +1,120 @@
+---
+title: Rust Functions Guide | Defining, Calling, and Returning Values
+description: >
+  Learn how to write and use functions in Rust! This beginner-friendly guide covers function syntax, parameters, return values, and best practices—with hands-on code, shadcn components, and clear explanations.
+slug: functions
+version: v1
+date: 2025-04-24
+---
+
+# 🛠️ Functions in Rust
+
+<Alert variant="success">
+  <AlertTitle>Why Functions?</AlertTitle>
+  <AlertDescription>
+    Functions are the <strong>building blocks</strong> of every Rust program. They help you write reusable, organized, and expressive code.
+  </AlertDescription>
+</Alert>
+
+---
+
+## 📌 Defining a Function
+
+<CodeBlock language="rust" showLineNumbers>{`fn greet() {
+    println!("Hello from a function!");
+}
+
+fn main() {
+    greet();
+}`}</CodeBlock>
+
+- Function names use <strong>snake_case</strong> by convention
+- Call a function with its name and parentheses
+
+---
+
+## 📥 Parameters
+
+<CodeBlock language="rust" showLineNumbers>{`fn greet_user(name: &str) {
+    println!("Hello, {}!", name);
+}
+
+fn main() {
+    greet_user("Rustacean");
+}`}</CodeBlock>
+
+<Alert variant="secondary">
+  <AlertDescription>
+    📌 Each parameter must have a <strong>name and a type</strong>. Rust is strict about types—no guessing here!
+  </AlertDescription>
+</Alert>
+
+---
+
+## 🎁 Return Values
+
+<CodeBlock language="rust" showLineNumbers>{`fn add(x: i32, y: i32) -> i32 {
+    x + y
+}
+
+fn main() {
+    let sum = add(5, 7);
+    println!("Sum is: {}", sum);
+}`}</CodeBlock>
+
+✅ The <strong>last expression</strong> in a function is the return value—no <code>return</code> needed unless you want to return early.
+
+If you do use <code>return</code>, add a semicolon:
+
+<CodeBlock language="rust" showLineNumbers>{`fn double(n: i32) -> i32 {
+    return n * 2;
+}`}</CodeBlock>
+
+❌ But if you end with an expression, <strong>do not</strong> use a semicolon:
+
+<CodeBlock language="rust" showLineNumbers>{`fn square(n: i32) -> i32 {
+    n * n // no semicolon here
+}`}</CodeBlock>
+
+---
+
+## ⚙️ Statements vs Expressions
+
+- <strong>Statements</strong> do something but return nothing (e.g., <code>let x = 5;</code>).
+- <strong>Expressions</strong> evaluate to a value (e.g., <code>5 + 2</code>, <code>x * y</code>, blocks like <code>{}</code>).
+
+Since Rust is expression-oriented, you can use blocks to return values:
+
+<CodeBlock language="rust" showLineNumbers>{`fn calculate() -> i32 {
+    let x = 3;
+    let y = 4;
+    {
+        x + y // this block is an expression!
+    }
+}`}</CodeBlock>
+
+---
+
+## 💡 Why Functions Matter
+
+- Make your code <strong>easier to read and maintain</strong>
+- Help you <strong>organize logic into small, testable chunks</strong>
+- Allow you to <strong>reuse behavior</strong> across your app
+
+Rust also supports advanced patterns like:
+- Function pointers
+- Closures (anonymous functions)
+- Higher-order functions
+
+…but we’ll get there later 😎
+
+---
+
+## 🧠 Summary
+
+- Define functions with <code>fn</code>
+- Use parentheses <code>()</code> for parameters
+- Return values with <code>-></code> and no semicolon on the last line
+- Embrace expressions—Rust loves them!
+
+Mastering functions early will unlock a lot of power in your Rust journey 🦀

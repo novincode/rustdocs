@@ -20,17 +20,7 @@ date: 2025-04-23
 
 ## ✨ Declaring Variables
 
-<CodeBlock
-  language="rust"
-  showLineNumbers
-  highlightLines={[1, 2, 3]}
-  wordsToHighlight={["let", "mut", "x", "y", "z"]}
-  annotations={[
-    { line: 1, message: "Immutable variable (default)", style: "info" },
-    { line: 2, message: "Mutable variable (can change)", style: "info" },
-    { line: 3, message: "Explicit type annotation", style: "info" }
-  ]}
->{`let x = 5;
+<CodeBlock language="rust" showLineNumbers>{`let x = 5;
 let mut y = 10;
 let z: f64 = 3.14;`}</CodeBlock>
 
@@ -42,15 +32,7 @@ let z: f64 = 3.14;`}</CodeBlock>
 
 ## 🔄 Changing Values (Mutability)
 
-<CodeBlock
-  language="rust"
-  showLineNumbers
-  highlightLines={[2]}
-  wordsToHighlight={["mut", "y"]}
-  annotations={[
-    { line: 2, message: "Now you can change y!", style: "info" }
-  ]}
->{`let mut y = 10;
+<CodeBlock language="rust" showLineNumbers>{`let mut y = 10;
 y = 20;`}</CodeBlock>
 
 <Alert variant="warning">
@@ -63,16 +45,7 @@ y = 20;`}</CodeBlock>
 
 ## 🕵️ Shadowing: Reuse Names, Change Types
 
-<CodeBlock
-  language="rust"
-  showLineNumbers
-  highlightLines={[2, 3]}
-  wordsToHighlight={["let", "x"]}
-  annotations={[
-    { line: 2, message: "Shadowing: new value, same name", style: "info" },
-    { line: 3, message: "Shadowing can change type", style: "info" }
-  ]}
->{`let x = 5;
+<CodeBlock language="rust" showLineNumbers>{`let x = 5;
 let x = x + 1;
 let x = "now I'm a string!";`}</CodeBlock>
 

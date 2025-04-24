@@ -1,0 +1,106 @@
+---
+title: Rust Ownership Explained | The Heart of Memory Safety
+description: >
+  Understand Rust's unique ownership system! Learn how ownership, moves, and cloning work with clear analogies, code, and practical tips. Beginner-friendly and essential for every Rustacean.
+slug: ownership
+version: v1
+date: 2025-04-24
+---
+
+# 🧠 Ownership in Rust
+
+<Alert variant="success">
+  <AlertTitle>Welcome to the heart of Rust!</AlertTitle>
+  <AlertDescription>
+    Ownership is what makes Rust memory-safe **without a garbage collector**. It’s unique, powerful, and once you “get it,” you’ll start seeing the magic.
+  </AlertDescription>
+</Alert>
+
+---
+
+## 🪄 What Is Ownership?
+
+Think of variables in Rust as **owners of data**. When a variable owns a value, it’s **responsible** for cleaning it up when it’s no longer used.
+
+<CodeBlock language="rust" showLineNumbers>{`fn main() {
+    let s = String::from("hello");
+    println!("{}", s);
+}`}</CodeBlock>
+
+Here, `s` **owns** the string `"hello"`. When `s` goes out of scope at the end of `main()`, Rust automatically cleans up the memory.
+
+👉 No need to call `free()` or use a garbage collector!
+
+---
+
+## 🔁 Move: Ownership Transfer
+
+When you assign a variable or pass it to a function, **ownership moves**:
+
+<CodeBlock language="rust" showLineNumbers>{`fn main() {
+    let s1 = String::from("hello");
+    let s2 = s1; // Ownership moved to s2
+
+    // println!("{}", s1); ❌ Error! s1 is no longer valid
+    println!("{}", s2);
+}`}</CodeBlock>
+
+`s1` gives up ownership. Rust does this to **prevent double-free errors**. Only **one variable** owns the data at a time.
+
+⚠️ This only happens for heap-allocated types like `String`. For simple types like integers, Rust **copies** instead of moves.
+
+<CodeBlock language="rust" showLineNumbers>{`let x = 5;
+let y = x; // ✅ x is still valid`}</CodeBlock>
+
+---
+
+## 📦 Functions and Ownership
+
+Passing ownership into functions follows the same rules:
+
+<CodeBlock language="rust" showLineNumbers>{`fn take_ownership(s: String) {
+    println!("Got: {}", s);
+} // s is dropped here
+
+fn main() {
+    let s = String::from("hello");
+    take_ownership(s); // s is moved
+    // println!("{}", s); ❌ Error!
+}`}</CodeBlock>
+
+If you want to **return ownership**, you can!
+
+<CodeBlock language="rust" showLineNumbers>{`fn give_back(s: String) -> String {
+    s
+}
+
+fn main() {
+    let s1 = String::from("hi");
+    let s2 = give_back(s1); // s1 moved, s2 owns it now
+}`}</CodeBlock>
+
+---
+
+## 🧬 Cloning (Explicit Copying)
+
+If you want to **make a real copy** of heap data, use `.clone()`:
+
+<CodeBlock language="rust" showLineNumbers>{`let s1 = String::from("hey");
+let s2 = s1.clone(); // Deep copy
+
+println!("s1: {}, s2: {}", s1, s2); // ✅ Both work`}</CodeBlock>
+
+Cloning can be expensive, so Rust makes it **explicit** — only clone when you really need to.
+
+---
+
+## 🧠 Summary
+
+- Every value in Rust has an **owner**
+- Ownership moves when variables are **assigned or passed** into functions
+- Only one owner at a time — when the owner goes out of scope, the value is dropped
+- Use `.clone()` if you need to **duplicate heap data**
+
+Ownership may feel strict at first, but it prevents entire classes of bugs — no memory leaks, no crashes, no surprises 🦀✨
+
+Up next: **References & Borrowing**, where we *share* data without transferring ownership!

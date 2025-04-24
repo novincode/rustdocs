@@ -1,0 +1,97 @@
+---
+title: Rust Control Flow | if, match, loops, and More
+description: >
+  Master control flow in Rust! Learn about if, else, match, and loops with clear examples, code blocks, and practical tips. Beginner-friendly, fun, and hands-on.
+slug: control-flow
+version: v1
+date: 2025-04-24
+---
+
+# 🔀 Control Flow in Rust
+
+<Alert variant="success">
+  <AlertTitle>Why Control Flow?</AlertTitle>
+  <AlertDescription>
+    Control flow lets your programs **make decisions** and **repeat actions**. Rust gives you powerful, safe, and expressive tools for this!
+  </AlertDescription>
+</Alert>
+
+---
+
+## ❓ if & else
+
+Use `if` to run code based on a condition:
+
+<CodeBlock language="rust" showLineNumbers>{`let number = 7;
+if number < 10 {
+    println!("Small number!");
+} else {
+    println!("Big number!");
+}`}</CodeBlock>
+
+- Conditions must be a **bool** (no `if x = 5` mistakes!)
+- You can chain with `else if`
+
+---
+
+## 🎯 match: Pattern Matching
+
+`match` lets you compare a value against patterns (like a supercharged switch):
+
+<CodeBlock language="rust" showLineNumbers>{`let day = "Friday";
+match day {
+    "Monday" => println!("Start of the week!"),
+    "Friday" => println!("Almost weekend!"),
+    _ => println!("Just another day."),
+}`}</CodeBlock>
+
+- The `_` pattern is a **catch-all** (like `default`)
+- Patterns can be values, ranges, or even destructured data
+
+---
+
+## 🔁 Loops: repeat things!
+
+### 1. loop (infinite)
+
+<CodeBlock language="rust" showLineNumbers>{`let mut count = 0;
+loop {
+    count += 1;
+    if count == 3 {
+        break;
+    }
+    println!("Count: {}", count);
+}`}</CodeBlock>
+
+- Use `break` to exit, `continue` to skip to the next iteration
+
+### 2. while
+
+<CodeBlock language="rust" showLineNumbers>{`let mut n = 0;
+while n < 5 {
+    println!("n is {}", n);
+    n += 1;
+}`}</CodeBlock>
+
+### 3. for
+
+<CodeBlock language="rust" showLineNumbers>{`for i in 1..=3 {
+    println!("i: {}", i);
+}`}</CodeBlock>
+
+- `for` is the most common loop in Rust—safe, concise, and works with ranges or collections
+
+---
+
+## 🧠 Summary
+
+- Use `if`/`else` for decisions
+- Use `match` for powerful pattern matching
+- Use `loop`, `while`, and `for` for repetition
+- Rust’s control flow is **safe** and **expressive**
+
+<Alert variant="secondary">
+  <AlertDescription>
+    🦀 **Pro Tip:** Rust’s compiler checks your patterns—no missing cases, no silent bugs!
+  </AlertDescription>
+</Alert>
